@@ -32,10 +32,14 @@ Wiener, Norbert. *The Human Use of Human Beings: Cybernetics and Society*. Da Ca
 
 ## Proposed Topic 3: Power of the mass
 
-A ant can carry out simple actions only. It is particularly weak in nature. But what if there are hundreds of, thousands of, or even millions of such ants? The paper will explore how machines imitate the natural phenomenon of massive movement, in which there are random trials, failures, reproduction, and eventually prediction. The interactions among individuals, which serve a vital role in the dynamics will be examined in detail.
+An ant can carry out simple actions only. It is particularly weak in nature. But what if there are hundreds of, thousands of, or even millions of such ants? The paper will explore how machines imitate the natural phenomenon of massive movement, in which there are random trials, failures, reproduction, and eventually prediction. The interactions among individuals, which serve a vital role in the dynamics will be examined in detail.
 
 **References:** 
 
 Braitenberg, Valentino. *Vehicles: Experiments in Synthetic Psychology*. 9. print, MIT Press, 2004.
 
 Mitchell, Melanie. *Complexity: A Guided Tour*. 1. iss. as an paperback, Oxford University Press, 2011.
+
+## Random thoughts
+
+- Accountability of AI. Bringing the hazards of Tesla in, I will discuss in circumstances that AI make mistakes who is held accountable and how will the victims be compensated.
