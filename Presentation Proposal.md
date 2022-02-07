@@ -1,5 +1,3 @@
-Presentation Proposal
-
 ## Proposed Topic 1: How do robots remove barriers for human
 
 The paper will be a comprehensive review of disparate roles robots play in personal and industrial dimensions. 
