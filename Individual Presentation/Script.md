@@ -77,9 +77,8 @@ This question arises when the man-made machines can, to some extent, exhibit ani
 
 Raised by Melanie Mitchell in the book Complexity.
 
-- There can be uncertain and changing behavior at the macroscopic level, producing chaos, e.g. relativity and quantum mechanics
-- Seemingly random behavior can emerge from deterministic systems with no external source of randomness
 - There can be uncertain and changing behavior at the macroscopic level, **producing chaos**, e.g., relativity and quantum mechanics
+- Seemingly random behavior can emerge from deterministic systems with no external source of randomness
 - The behavior of some simple, deterministic systems can be **impossible to predict** even in principle in the long term, due to sensitive dependence on initial conditions
 - Although the detailed behavior of a chaotic system cannot be predicted, there is some **“order” in chaos** seen in universal properties
 
