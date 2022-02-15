@@ -1,0 +1,148 @@
+Mover[] movers = new Mover[10]; // fireflies
+ArrayList<Attractor> attractors = new ArrayList<Attractor>(); // light sources
+attractors.add(new Attractor());
+
+void setup() {
+  size(1200, 900);
+
+  for (int i = 0; i < movers.length; i++) {
+    // Each Mover is initialized randomly.
+    movers[i] = new Mover(random(0.1, 2), // mass
+      random(width), random(height)); // initial location
+  }
+}
+
+void draw() {
+  background(255,75);
+
+  // For each mover
+  for (int i = 0; i < movers.length; i++) {
+
+    // Apply the attraction force from the attractors on this mover
+    if (attractors.size != 0) {
+      for (int j = 0; j < attractors.length; j++) {
+        PVector aForce = attractors.get(j).attract(movers[i]);
+        movers[i].applyForce(aForce);
+      }
+    }
+
+    // Now apply the force from all the other movers on this mover
+    for (int j = 0; j < movers.length; j++) {
+      // Don’t attract yourself!
+      if (i != j) {
+        PVector force = movers[j].attract(movers[i]);
+        movers[i].applyForce(force);
+      }
+    }
+
+    movers[i].update();
+    movers[i].display();
+    attractors.display();
+  }
+}
+
+void mousePressed() {
+  attractors.add(Attractor());
+}
+
+
+
+class Mover {
+
+  PVector location;
+  PVector velocity;
+  PVector acceleration;
+  float mass;
+  float G = 0.4;
+  int myColor;
+
+  Mover(float _mass_, float _x_, float _y_) {
+    mass = _mass_;
+    location = new PVector(_x_, _y_);
+    velocity = new PVector(0, 0);
+    acceleration = new PVector(0, 0);
+    myColor = round(random(1));
+  }
+
+  // Newton’s second law.
+  void applyForce(PVector force) {
+    // Receive a force, divide by mass, and add to acceleration.
+    PVector f = PVector.div(force, mass);
+    acceleration.add(f);
+  }
+
+  // The Mover now knows how to attract another Mover.
+  PVector attract(Mover m) {
+    PVector force = PVector.sub(location, m.location);
+    float distance = force.mag();
+    distance = constrain(distance, 5, 20.0);
+    force.normalize();
+
+    float strength = (G * mass * m.mass) / (distance * distance);
+    force.mult(strength);
+
+    // If the color is different then we will be repelled
+    if (myColor != m.myColor) force.mult(-1);
+
+    return force;
+  }
+
+  void update() {
+    velocity.add(acceleration);
+    location.add(velocity);
+    acceleration.mult(0);
+  }
+
+  void display() {
+    stroke(0);
+    if (myColor == 1) fill(255, 0, 0);
+    else fill (0, 0, 255);
+
+    // Rotate the mover to point in the direction of travel
+    // Translate to the center of the move
+    pushMatrix();
+    translate(location.x, location.y);
+    rotate(velocity.heading());
+    // It took lots of trial and error
+    // and sketching on paper
+    // to get the triangle
+    // pointing in the right direction
+    triangle(0, 5, 0, -5, 20, 0);
+    popMatrix();
+  }
+}
+
+
+class Attractor {
+  float mass;
+  PVector location;
+  float G;
+
+  Attractor() {
+    location = new PVector(mouseX, mouseY);
+
+    // Big mass so the force is greater than vehicle-vehicle force
+    // You can play with this number to see different results
+    mass = 70;
+    G = 0.4;
+  }
+
+  PVector attract(Mover m) {
+    PVector force = PVector.sub(location, m.location);
+    float distance = force.mag();
+    // Remember, we need to constrain the distance
+    // so that our vehicle doesn’t spin out of control.
+    distance = constrain(distance, 5.0, 25.0);
+
+    force.normalize();
+    float strength = (G * mass * m.mass) / (distance * distance);
+    force.mult(strength);
+    return force;
+  }
+
+  void display() {
+    stroke(0);
+    fill(175, 200);
+    ellipse(location.x, location.y, mass*2, mass*2);
+  }
+}
