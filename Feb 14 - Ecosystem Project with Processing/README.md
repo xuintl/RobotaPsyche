@@ -14,6 +14,9 @@ The insects obey Newton's first law of inertia, that they would not change their
 
 ### Screenshots
 
+![Screenshot 2022-02-15 210111](https://user-images.githubusercontent.com/51028862/154114710-b11c3b9c-aa93-4ddf-95cd-e558ffa380f2.png)
+![2c88d2cffab254474975adc91dc82ed](https://user-images.githubusercontent.com/51028862/154114744-ae4a7271-92ea-4cce-9fba-99faba6a6dd9.png)
+![4b1fe638e79894cb0321460bdd8e7c6](https://user-images.githubusercontent.com/51028862/154114762-ea699bfc-94e5-4e33-a03a-f8283392f197.png)
 
 
 [A link to the video](https://od20-my.sharepoint.com/:v:/g/personal/xu_od20_onmicrosoft_com/EbaFuwepGOtCq-lXDvZGrK8BIYKy2gZZJpsDMispwBL9KA?e=WDj5tI&download=1)
