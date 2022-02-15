@@ -25,7 +25,7 @@ The insects obey Newton's first law of inertia, that they would not change their
 
 ### Takeaways
 
-After times of practice, I am now more acquainted with programming in Java environment, especially in:
+After trials and failures, I am now more acquainted with programming in Java environment, especially in:
 
 - the use of punctuation marks in this language;
 - ArrayList;
