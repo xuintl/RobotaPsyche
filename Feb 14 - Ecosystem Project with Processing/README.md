@@ -8,7 +8,7 @@ The ecosystem I tried to build consists of a group of insects (possibly fireflie
 
 - bright yellow light sources placed by the user by mouse clicks.
 
-The insects obey Newton's first law of inertia, that they would not change their velocities (direction & magnitude) immediately when attracted. Instead, their velocities are changed due to the forces by the attraction, according to Newton's second law. Meanwhile, they turn back after colliding with the wall.
+The insects obey Newton's first law of inertia, that they would not change their velocities (direction & magnitude) immediately when attracted. Instead, their velocities change due to the forces exerted by the attraction, according to Newton's second law. Additionally, they turn back after colliding with the wall.
 
 
 
@@ -32,7 +32,7 @@ After trials and failures, I am now more acquainted with programming in Java env
 - initiation of objects;
 - global and local variables.
 
-Also, I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world maybe set alive in the innate simplicity and observed unpredictability.
+Also, I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in the innate simplicity and observed unpredictability.
 
 
 
