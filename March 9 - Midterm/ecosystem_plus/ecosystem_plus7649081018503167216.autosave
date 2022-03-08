@@ -127,7 +127,7 @@ class Mover {
   }
 
   void display() {
-    stroke(255,0,0);
+    stroke(255);
     fill (myColor);
 
     // Rotate the mover to point in the direction of travel
