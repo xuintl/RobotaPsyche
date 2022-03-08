@@ -1,14 +1,14 @@
 Mover[] movers = new Mover[100]; // fireflies
-ArrayList<Attractor> attractors = new ArrayList<Attractor>(); // light sources
+ArrayList<LightSource> LightSources = new ArrayList<LightSource>(); // light sources
 
 void setup() {
-  size(1200, 900);
-  // attractors.add(new Attractor(width/2, height/2));
+  size(800, 600);
+  String mode = "dark";
+  // LightSources.add(new LightSource(width/2, height/2));
 
   for (int i = 0; i < movers.length; i++) {
     // Each Mover is initialized randomly.
-    movers[i] = new Mover(random(0.1, 2), // mass
-      random(width), random(height)); // initial location
+    movers[i] = new Mover(random(width), random(height)); // initial location
   }
 }
 
@@ -17,14 +17,18 @@ void draw() {
   // fill(255, 50);
   // rect(0, 0, width, height);
 
+  if (LightSources.size() == 3) {
+    fill(255,0,0);
+    text("You reached the maximum number of light sources permitted.", 5,5);
+  }
+
   // For each mover
   for (int i = 0; i < movers.length; i++) {
-
-    // Apply the attraction force from the attractors on this mover
-    for (int j = 0; j < attractors.size(); j++) {
-      PVector aForce = attractors.get(j).attract(movers[i]);
+    // Apply the attraction force from the LightSources on this mover
+    for (int j = 0; j < LightSources.size(); j++) {
+      LightSources.get(j).display();
+      PVector aForce = LightSources.get(j).seek(movers[i]);
       movers[i].applyForce(aForce);
-      attractors.get(j).display();
     }
 
     // Now apply the force from all the other movers on this mover
@@ -38,41 +42,40 @@ void draw() {
 
     movers[i].update();
     movers[i].display();
-    movers[i].checkEdges();
+     //movers[i].checkEdges();
   }
 }
 
 void mousePressed() {
-  attractors.add(new Attractor(mouseX, mouseY));
+  if (LightSources.size() <10) LightSources.add(new LightSource(mouseX, mouseY));
+}
+
+void keyPressed() {
+  if (key == 'n' || key == 'N') {
+
+  }
 }
 
 
-
-class Attractor {
+class LightSource {
   float mass;
   PVector location;
-  float G;
+  float maxspeed;
 
-  Attractor(int _x_, int _y_) {
+  LightSource(int _x_, int _y_) {
     location = new PVector(_x_, _y_);
-
-    // Big mass so the force is greater than vehicle-vehicle force
-    // You can play with this number to see different results
     mass = 30;
-    G = 0.4;
+    maxspeed = 5;
   }
 
-  PVector attract(Mover m) {
-    PVector force = PVector.sub(location, m.location);
-    float distance = force.mag();
-    // Remember, we need to constrain the distance
-    // so that our vehicle doesn’t spin out of control.
-    distance = constrain(distance, 5.0, 25.0);
-
-    force.normalize();
-    float strength = (G * mass * m.mass) / (distance * distance);
-    force.mult(strength);
-    return force;
+  // Our seek steering force algorithm
+  PVector seek(Mover m) {
+    PVector desired = PVector.sub(location, m.location);
+    desired.normalize();
+    desired.mult(maxspeed);
+    PVector steer = PVector.sub(desired, m.velocity);
+    steer.limit(0.01); // maxforce
+    return (steer);
   }
 
   void display() {
@@ -84,7 +87,6 @@ class Attractor {
 
 
 class Mover {
-
   PVector location;
   PVector velocity;
   PVector acceleration;
@@ -92,12 +94,12 @@ class Mover {
   float G = 0.4;
   float myColor;
 
-  Mover(float _mass_, float _x_, float _y_) {
-    mass = _mass_;
+  Mover(float _x_, float _y_) {
+    mass = random(0.01, 2.55);
     location = new PVector(_x_, _y_);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
-    myColor = random(255);
+    myColor = mass * 100;
   }
 
   // Newton’s second law.
@@ -111,12 +113,11 @@ class Mover {
   PVector attract(Mover m) {
     PVector force = PVector.sub(location, m.location);
     float distance = force.mag();
-    distance = constrain(distance, 5, 20.0);
+    distance = constrain(distance, 0, 25.0);
     force.normalize();
-
     float strength = (G * mass * m.mass) / (distance * distance);
     force.mult(strength);
-
+    force.limit(50);
     return force;
   }
 
@@ -127,18 +128,12 @@ class Mover {
   }
 
   void display() {
-    stroke(255);
     fill (myColor);
-
     // Rotate the mover to point in the direction of travel
     // Translate to the center of the move
     pushMatrix();
     translate(location.x, location.y);
     rotate(velocity.heading());
-    // It took lots of trial and error
-    // and sketching on paper
-    // to get the triangle
-    // pointing in the right direction
     triangle(0, 5, 0, -5, 20, 0);
     popMatrix();
   }

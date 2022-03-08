@@ -1,9 +1,9 @@
-int mode = 0;
-Mover[] movers = new Mover[50]; // insects
+Mover[] movers = new Mover[50]; // fireflies
 ArrayList<LightSource> LightSources = new ArrayList<LightSource>(); // light sources
 
 void setup() {
-  size(1200,800);
+  size(800,600);
+  String mode = "dark";
   // LightSources.add(new LightSource(width/2, height/2));
 
   for (int i = 0; i < movers.length; i++) {
@@ -13,30 +13,13 @@ void setup() {
 }
 
 void draw() {
-  if (mode == 0) { // dark mode
-    background(0,0,0);
-    // fill(255, 50);
-    // rect(0, 0, width, height);
-    
-    fill(255,255,255);
-    if (LightSources.size() >= 5) {
-      text("Press N to switch to day mode. Click the mouse to place a light source. You reached the maximum number of light sources permitted.", 5,15);
-    } else {
-      text("Press N to switch to day mode. Click the mouse to place a light source.", 5,15);
-    }
-  }
-  
-  else if (mode == 1) { // day mode
-    background(255,255,255);
-    // fill(255, 50);
-    // rect(0, 0, width, height);
+  background(0,0,0);
+  // fill(255, 50);
+  // rect(0, 0, width, height);
 
-    fill(0,0,0);
-    if (LightSources.size() >= 5) {
-      text("Press N to switch to dark mode. Click the mouse to place a light source. You reached the maximum number of light sources permitted.", 5,15);
-    } else {
-      text("Press N to switch to dark mode. Click the mouse to place a light source.", 5,15);
-    }
+  if (LightSources.size() >= 5) {
+    fill(255,0,0);
+    text("You reached the maximum number of light sources permitted.", 5,15);
   }
 
   // For each mover
@@ -59,7 +42,7 @@ void draw() {
 
     movers[i].update();
     movers[i].display();
-    movers[i].checkEdges();
+    // movers[i].checkEdges();
   }
 }
 
@@ -69,8 +52,7 @@ void mousePressed() {
 
 void keyPressed() {
   if (key == 'n' || key == 'N') {
-    if (mode == 0) mode = 1;
-    else if (mode == 1) mode = 0;
+
   }
 }
 
@@ -78,39 +60,21 @@ void keyPressed() {
 class LightSource {
   float mass;
   PVector location;
-  // float G;
   float maxspeed;
-  float maxforce;
 
   LightSource(int _x_, int _y_) {
     location = new PVector(_x_, _y_);
     mass = 30;
-    // G = 0.4;
     maxspeed = 5;
   }
 
-  // PVector attract(Mover m) {
-  //   PVector force = PVector.sub(location, m.location);
-  //   float distance = force.mag();
-  //   // Remember, we need to constrain the distance
-  //   // so that our vehicle doesn’t spin out of control.
-  //   distance = constrain(distance, 5.0, 25.0);
-
-  //   force.normalize();
-  //   float strength = (G * mass * m.mass) / (distance * distance);
-  //   force.mult(strength);
-  //   return force;
-  // }
-
   // Our seek steering force algorithm
   PVector seek(Mover m) {
-    if (mode == 0) maxforce = 0.05;
-    else if (mode == 1) maxforce = 0.001;
     PVector desired = PVector.sub(location, m.location);
     desired.normalize();
     desired.mult(maxspeed);
     PVector steer = PVector.sub(desired, m.velocity);
-    steer.limit(maxforce);
+    steer.limit(0.01); // maxforce
     return (steer);
   }
 
@@ -149,7 +113,6 @@ class Mover {
   PVector attract(Mover m) {
     PVector force = PVector.sub(location, m.location);
     float distance = force.mag();
-    if (mode == 1) distance = constrain(distance, 5, 20.0);
     force.normalize();
     float strength = (G * mass * m.mass) / (distance * distance);
     force.mult(strength);
@@ -164,9 +127,7 @@ class Mover {
   }
 
   void display() {
-    if (mode == 0) stroke(255, 255, 255);
-    else stroke (0,0,0);
-    fill(myColor);
+    fill (myColor);
     // Rotate the mover to point in the direction of travel
     // Translate to the center of the move
     pushMatrix();
@@ -181,16 +142,24 @@ class Mover {
   // or reappear at a random location or other ideas. Also instead of
   // bouncing at full-speed vehicles might lose speed. So many options!
   void checkEdges() {
-    if (location.x > width*.95) {
-      velocity.x *= 0.3; // detect edge and slow down
-    } else if (location.x < width*0.05) {
-      velocity.x *= 0.3; // detect edge and slow down
+    if (location.x > width) {
+      location.x = width;
+      velocity.x *= -1; // full velocity, opposite direction
+      velocity.x *= 0.8; // lose a bit of energy in the bounce
+    } else if (location.x < 0) {
+      location.x = 0;
+      velocity.x *= -1; // full velocity, opposite direction
+      velocity.x *= 0.8; // lose a bit of energy in the bounce
     }
 
-    if (location.y > height*0.95) {
-      velocity.x *= 0.3; // detect edge and slow down
-    } else if (location.y < height*0.05) {
-      velocity.x *= 0.3; // detect edge and slow down
+    if (location.y > height) {
+      location.y = height;
+      velocity.y *= -1; // full velocity, opposite direction
+      velocity.y *= 0.8; // lose a bit of energy in the bounce
+    } else if (location.y < 0) {
+      location.y = 0;
+      velocity.y *= -1; // full velocity, opposite direction
+      velocity.y *= 0.8; // lose a bit of energy in the bounce
     }
   }
 }

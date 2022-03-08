@@ -2,7 +2,7 @@
 
 This project, as an assignment, is required to simulate an ecosystem in Processing. It incorporates the concepts we have learned from the book *Vehicles*.
 
-The ecosystem I tried to build consists of a group of insects (possibly fireflies) of different brightness displayed in a black & white gradient. Each insect has a different initial velocity represented by the gradient. The insects are designed to be attracted to
+The ecosystem I tried to build consists of a group of insects (possibly fireflies) of different brightness displayed in a black & white gradient. Each insect has a different initial position. The insects are designed to be attracted to
 
 - each other;
 
