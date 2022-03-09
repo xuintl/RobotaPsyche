@@ -1,5 +1,5 @@
 int mode = 0;
-Mover[] movers = new Mover[50]; // insects
+Mover[] movers = new Mover[100]; // insects
 ArrayList<LightSource> LightSources = new ArrayList<LightSource>(); // light sources
 
 void setup() {
@@ -105,7 +105,7 @@ class LightSource {
   // Our seek steering force algorithm
   PVector seek(Mover m) {
     if (mode == 0) maxforce = 0.05;
-    else if (mode == 1) maxforce = 0.001;
+    else if (mode == 1) maxforce = 0.005;
     PVector desired = PVector.sub(location, m.location);
     desired.normalize();
     desired.mult(maxspeed);
@@ -152,6 +152,7 @@ class Mover {
     if (mode == 1) distance = constrain(distance, 5, 20.0);
     force.normalize();
     float strength = (G * mass * m.mass) / (distance * distance);
+    if (mode == 1 || mass - m.mass >= 2) strength *= -0.5;
     force.mult(strength);
     force.limit(50);
     return force;
@@ -182,15 +183,29 @@ class Mover {
   // bouncing at full-speed vehicles might lose speed. So many options!
   void checkEdges() {
     if (location.x > width*.95) {
-      velocity.x *= 0.3; // detect edge and slow down
+      velocity.x *= 0.7; // slow down near the edge
     } else if (location.x < width*0.05) {
-      velocity.x *= 0.3; // detect edge and slow down
+      velocity.x *= 0.7; // slow down near the edge
+    }
+    if (location.y > height*0.95) {
+      velocity.x *= 0.7; // slow down near the edge
+    } else if (location.y < height*0.05) {
+      velocity.x *= 0.7; // slow down near the edge
     }
 
-    if (location.y > height*0.95) {
-      velocity.x *= 0.3; // detect edge and slow down
-    } else if (location.y < height*0.05) {
-      velocity.x *= 0.3; // detect edge and slow down
+    if (location.x > width) {
+      location.x = width-5;
+      velocity.x *= -0.9; // bounce back with energy loss
+    } else if (location.x < 0) {
+      location.x = 5;
+      velocity.x *= -0.9; // bounce back with energy loss
+    }
+    if (location.y > height) {
+      location.y = height-5;
+      velocity.y *= -0.9; // bounce back with energy loss
+    } else if (location.y < 0) {
+      location.y = 5;
+      velocity.y *= -0.9; // bounce back with energy loss
     }
   }
 }

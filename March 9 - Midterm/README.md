@@ -41,7 +41,7 @@ I have made a roadmap of what to achieve after drafting possible features:
 - [x] a different mechanism of the wall/edges;
 - [x] instructions on the screen.
 
-More detailed description of what I have done in the process of development is included in the [journal](/March%209%20-%20Midterm/Journal.md) in the folder of the project submitted.
+More details about what I have done in the process of development are in the [journal](/March%209%20-%20Midterm/Journal.md) in the folder of the project.
 
 
 

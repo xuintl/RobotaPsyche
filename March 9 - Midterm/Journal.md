@@ -1,6 +1,7 @@
 ### March 9
 
 - added strikes in dark/day modes
+- updated documentation
 
 
 
