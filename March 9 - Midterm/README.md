@@ -52,7 +52,7 @@ More details about what I have done in the process of development are in the [jo
 
 I have examined idea of borderless canvas, which allows the insects to go beyond the site of the user. Yet, it was proven unsuccessful due to the low chance that the user is able to observe the movement of the insects after a while.
 
-If I have implemented this, the behavior of the insects would be like mosquitoes - we cannot find them except that we have something, the light sources, appealing to them.
+If I have implemented this, the behavior of the insects would be like mosquitoes - we cannot find them except that we have something, for example, the light sources, appealing to them.
 
 ### Fading trails with no lagging
 
