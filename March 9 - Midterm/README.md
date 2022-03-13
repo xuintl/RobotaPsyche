@@ -6,12 +6,12 @@ The ecosystem I tried to build consists of a group of insects. Each insect has a
 
 In the dark mode:
 
-- the light source is highly attracting
+- the light sources are highly attracting
 - the insect only moves when it is stimulated by the movement of neighboring insects
 
 In the day mode:
 
-- the light source is less attracting
+- the light sources are less attracting
 - the insect is attracted to other individuals with similar gradients
 - the insect avoids other individuals with disparate gradients
 
@@ -54,12 +54,12 @@ I have examined idea of borderless canvas, which allows the insects to go beyond
 
 If I have implemented this, the behavior of the insects would be like mosquitoes - we cannot find them except that we have something, the light sources, appealing to them.
 
-### Unlimited light sources with no lagging
+### Fading trials with no lagging
 
 In the attempt to fix the lagging bug, I tried to apply other approaches to implement the fading trails, yet it does not resolve the issue of lagging - it appears that some other calculations occupy a high level of resources as well. So I decided to
 
 - remove the trail functionality
-- and limit the maximum amount of light sources.
+- and limit the maximum number of light sources.
 
 
 
