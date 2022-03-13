@@ -54,7 +54,7 @@ I have examined idea of borderless canvas, which allows the insects to go beyond
 
 If I have implemented this, the behavior of the insects would be like mosquitoes - we cannot find them except that we have something, the light sources, appealing to them.
 
-### Fading trials with no lagging
+### Fading trails with no lagging
 
 In the attempt to fix the lagging bug, I tried to apply other approaches to implement the fading trails, yet it does not resolve the issue of lagging - it appears that some other calculations occupy a high level of resources as well. So I decided to
 
@@ -67,4 +67,4 @@ In the attempt to fix the lagging bug, I tried to apply other approaches to impl
 
 I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in the innate simplicity and observed unpredictability.
 
-Furthermore, adding contrasting sets of behavior to different scenarios, the insects become surprisingly authentic in the view of an observer. It has further proven to me that every organism consists of a "conditioned response" which I learned in psychology.
+Furthermore, adding contrasting sets of behavior to different scenarios, the insects become surprisingly authentic in the view of an observer. It has further proven to me that every organism consists of "conditioned responses" which I learned in psychology.
