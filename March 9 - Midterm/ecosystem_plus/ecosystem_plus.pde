@@ -1,3 +1,11 @@
+// Yiyang Xu
+// Robota Psyche with Prof. Michael Shiloh
+// March 9
+// This project, as an midterm assignment, is to simulate an ecosystem in Processing. It incorporates the concepts we have learned from the book *Vehicles*, and is the continuation and complication of the previous ecosystem assignment.
+// The ecosystem I tried to build consists of a group of insects. Each insect has a different initial velocity represented by the black & white gradient. They have two different sets of behavior in the dark mode and the day mode.
+
+
+
 int mode = 0;
 Mover[] movers = new Mover[100]; // insects
 ArrayList<LightSource> LightSources = new ArrayList<LightSource>(); // light sources

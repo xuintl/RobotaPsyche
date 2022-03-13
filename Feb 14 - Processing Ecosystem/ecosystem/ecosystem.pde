@@ -1,3 +1,10 @@
+// Yiyang Xu
+// Robota Psyche with Prof. Michael Shiloh
+// February 14
+// This project, as an assignment, is required to simulate an ecosystem in Processing. It incorporates the concepts we have learned from the book *Vehicles*.
+
+
+
 Mover[] movers = new Mover[100]; // fireflies
 ArrayList<Attractor> attractors = new ArrayList<Attractor>(); // light sources
 
