@@ -1,28 +1,23 @@
 ## Description
 
-This project, as an midterm assignment, is to simulate an ecosystem in Processing. It incorporates the concepts we have learned from the book *Vehicles*, and is the continuation and complication of the previous ecosystem.
+This project, as an midterm assignment, is to simulate an ecosystem in Processing. It incorporates the concepts we have learned from the book *Vehicles*, and is the continuation and complication of the previous ecosystem assignment.
 
-The ecosystem I tried to build consists of a group of insects. Each insect has a different initial velocity represented by the gradient. The insects are designed to be attracted to each other AND the bright yellow light sources placed by the user by mouse clicks.
+The ecosystem I tried to build consists of a group of insects. Each insect has a different initial velocity represented by the black & white gradient. They have two different sets of behavior in the dark mode and the day mode.
 
 In the dark mode:
 
-- the insect only moves when it is stimulated by the movement of neighboring insects
 - the light source is highly attracting
+- the insect only moves when it is stimulated by the movement of neighboring insects
 
 In the day mode:
 
-- the insect moves spontaneously closer to other insects in the group
-- 
+- the light source is less attracting
+- the insect is attracted to other individuals with similar gradients
+- the insect avoids other individuals with disparate gradients
 
-The insects obey Newton's first law of inertia, that they would not change their velocities (direction & magnitude) immediately when attracted. Instead, their velocities change due to the forces exerted by the attraction, according to Newton's second law. Additionally, they turn back after colliding with the wall.
+The insects obey Newton's first law of inertia, that they would not change their velocities (direction & magnitude) immediately when attracted. Instead, their velocities change due to the forces exerted by the attraction, according to Newton's second law.
 
-
-
-observation
-
-like other insects such as mostquitos
-
-we cannot find them except that we have something appeling to them
+The insects slows down when it approaches the wall, and it bounces back with certain energy loss from the wall.
 
 
 
@@ -32,9 +27,9 @@ we cannot find them except that we have something appeling to them
 
 
 
-## Retrospection
+## Roadmap
 
-I have made a roadmap of what to achieve after drafting possible features:
+I have made a list of objectives after drafting possible features as an upgrade of the previous ecosystem assignment:
 
 - [x] variation in insect properties represented by the gradient;
 - [x] day and night modes with two different sets of fireflies behavior;
@@ -45,8 +40,25 @@ More details about what I have done in the process of development are in the [jo
 
 
 
+## Attempts
+
+### Borderless canvas
+
+I have examined idea of borderless canvas, which allows the insects to go beyond the site of the user. Yet, it was proven unsuccessful due to the low chance that the user is able to observe the movement of the insects after a while.
+
+If I have implemented this, the behavior of the insects would be like mosquitoes - we cannot find them except that we have something, the light sources, appealing to them.
+
+### Unlimited light sources with no lagging
+
+In the attempt to fix the lagging bug, I tried to apply other approaches to implement the fading trails, yet it does not resolve the issue of lagging - it appears that some other calculations occupy a high level of resources as well. So I decided to
+
+- remove the trail functionality
+- and limit the maximum amount of light sources.
 
 
-Also, I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in the innate simplicity and observed unpredictability.
 
-As demonstrated in the end of the video, after placing more than three light sources in the ecosystem, the rather simple program can easily occupy high computing resources of the system. Nonetheless, while occupying such resources, the program is still not able to run smoothly. The program thus needs to be optimized.
+## Discussion
+
+I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in the innate simplicity and observed unpredictability.
+
+Furthermore, adding contrasting sets of behavior to different scenarios, the insects become surprisingly authentic in the view of an observer. It has further proven to me that every organism consists of a "conditioned response" which I learned in psychology.
