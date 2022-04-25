@@ -1,1 +1,1 @@
-
+Test course has been vision broadening experience for me, I said incorporates elements ranging from philosophy to technology and psychology and cybernetics. every student, including each one of my peers and myself, has actively engaging 
