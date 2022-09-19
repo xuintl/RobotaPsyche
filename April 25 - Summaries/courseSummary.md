@@ -6,4 +6,4 @@ If I am to use three words to describe this course, and my experiences in this c
 
 - engaging
 
-This course has been vision-broadening experience for me, as it incorporates elements ranging from philosophy to technology, from psychology to cybernetics. Every student, including each one of my peers and myself, has actively engaged in discovering on the edge of robots, and what we could do with our discoveries.
+This course has been vision-broadening experience for me, as it incorporates elements ranging from philosophy to technology, from psychology to cybernetics. Every student, including each one of my peers and myself, has actively engaged in envisioning possible frontiers of robots, and what we could do with our discoveries.
