@@ -1,13 +1,9 @@
-If I am to use three words to describe this course, and my experiences in this course, it would be:
+If I am to use three words to describe this course, and my experiences in this course, they would be:
 
 - multidisciplinary
-
-  123
 
 - enriching
 
 - engaging
 
-
-
-Test course has been vision broadening experience for me, I said incorporates elements ranging from philosophy to technology and psychology and cybernetics. every student, including each one of my peers and myself, has actively engaging 
+This course has been vision-broadening experience for me, as it incorporates elements ranging from philosophy to technology, from psychology to cybernetics. Every student, including each one of my peers and myself, has actively engaged in discovering on the edge of robots, and what we could do with our discoveries.
