@@ -31,7 +31,7 @@ After trials and failures, I am now more acquainted with programming in Java env
 - initiation of objects;
 - global and local variables.
 
-Also, I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in the innate simplicity and observed unpredictability.
+Also, I observed that with some rather simple principles, the entire system seems to be chaos, which is unpredictable. I am more convinced that the entire world may be set alive in innate simplicity and observed unpredictability.
 
 
 
