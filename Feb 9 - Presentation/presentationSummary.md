@@ -8,7 +8,7 @@ My individual presentation is entitled "Power of the Mass", in which
 
 ## Preparation
 
-In the preparation of the presentation, I have consulted several sources including *Complexity*, *The Machine Question*, etc. After comprehensive research and outlining, I have made some slides for the class. The entire archive can be viewd via [this link](https://github.com/yiyangthesame/RobotaPsyche/tree/main/Feb%209%20-%20Individual%20Presentation).
+In the preparation of the presentation, I have consulted several sources including *Complexity*, *The Machine Question*, etc. After comprehensive research and outlining, I have made some slides for the class. The entire archive can be viewd via [this link](/Feb%209%20-%20Presentation).
 
 ## Structure
 
